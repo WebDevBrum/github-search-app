@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Header from "./components/Header";
+import SearchBar from "./components/SearchBar";
+import User from "./components/User";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [user, setUser] = useState({});
+  const [query, setQuery] = useState("");
+
+  const getUser = async (username) => {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const details = await response.json();
+    setUser((prevState) => ({ ...prevState, ...details }));
+    setQuery("");
+    // return details;
+  };
+
+  useEffect(() => {
+    console.log("hello user", user);
+    // getUser("webDevBrum");
+    // getUser("Hendrixer");
+    // console.log(user);
+  }, [user]);
+
+  // useEffect(() => {
+  //   getUser("webDevBrum");
+  //   getUser("Hendrixer");
+  // }, []);
+
+  // getUser("webDevBrum");
+  // getUser("Hendrixer");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col min-h-screen justify-center items-center">
+      <Header />
+      <SearchBar getUser={getUser} query={query} setQuery={setQuery} />
+      <User user={user} />
     </div>
   );
 }
