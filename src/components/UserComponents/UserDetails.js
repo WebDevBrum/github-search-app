@@ -8,6 +8,8 @@ const UserDetails = ({ user }) => {
           <p>{user.avatar_url}</p>
           <p>{user.name ? user.name : user.login}</p>
           <p>@{user.login}</p>
+          <p>{user.created_at}</p>
+          <p>{user.bio}</p>
           <div>
             <p></p>
           </div>
