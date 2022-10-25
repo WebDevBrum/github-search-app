@@ -33,7 +33,7 @@ function App() {
   // getUser("Hendrixer");
 
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center">
+    <div className="flex flex-col min-h-screen justify-center items-center bg-lightGrey">
       <Header />
       <SearchBar getUser={getUser} query={query} setQuery={setQuery} />
       <User user={user} />

@@ -2,7 +2,7 @@ import React from "react";
 
 const Followers = ({ user }) => {
   return (
-    <div>
+    <div className="bg-lightGrey">
       {user && user.login && (
         <div className="flex">
           <div>

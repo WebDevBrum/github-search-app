@@ -10,9 +10,9 @@ const SearchBar = ({ getUser, query, setQuery }) => {
   };
 
   return (
-    <section>
+    <section className="w-3/4">
       <input
-        className={"border-solid border-2 border-sky-500"}
+        className={"border-solid border-2 border-sky-500 w-full"}
         type="text"
         placeholder="Search.."
         value={query}

@@ -5,10 +5,15 @@ import UserDetails from "./UserComponents/UserDetails";
 
 const User = ({ user }) => {
   return (
-    <section>
-      <UserDetails user={user} />
-      <Followers user={user} />
-      <LocationSocial user={user} />
+    <section className="bg-white flex w-3/4">
+      <div>
+        <img src={user.avatar_url}></img>
+      </div>
+      <div>
+        <UserDetails user={user} />
+        <Followers user={user} />
+        <LocationSocial user={user} />
+      </div>
     </section>
   );
 };
