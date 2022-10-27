@@ -5,10 +5,12 @@ const UserDetails = ({ user }) => {
     <div>
       {user && user.login && (
         <>
-          <p>{user.name ? user.name : user.login}</p>
-          <p>@{user.login}</p>
+          <h1 className="font-spaceBold text-H1">
+            {user.name ? user.name : user.login}
+          </h1>
+          <p className="font-spaceReg text-H3">@{user.login}</p>
           <p>{user.created_at}</p>
-          <p>{user.bio}</p>
+          <p className={"font-spaceReg text-BODY"}>{user.bio}</p>
           <div>
             <p></p>
           </div>

@@ -13,6 +13,22 @@ module.exports = {
       darkBlack: "#141d2f",
       darkBlue: "#1e2a47",
     },
+    maxWidth: {
+      box: "730px",
+    },
+    fontFamily: {
+      spaceBold: ["SPACE-BOLD"],
+      spaceReg: ["SPACE-REG"],
+    },
+
+    fontSize: {
+      H1: "26px",
+      H2: "22px",
+      H3: "16px",
+      H4: "13px",
+      BODY: "15px",
+    },
+
     extend: {},
   },
   plugins: [],

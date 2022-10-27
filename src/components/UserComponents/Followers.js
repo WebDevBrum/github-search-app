@@ -6,16 +6,16 @@ const Followers = ({ user }) => {
       {user && user.login && (
         <div className="flex">
           <div>
-            <p>Repos</p>
-            <p>{user.public_repos}</p>
+            <p className={"font-spaceReg text-H4"}>Repos</p>
+            <p className={"font-spaceBold text-H2"}>{user.public_repos}</p>
           </div>
           <div>
-            <p>Followers</p>
-            <p>{user.followers}</p>
+            <p className={"font-spaceReg text-H4"}>Followers</p>
+            <p className={"font-spaceBold text-H2"}>{user.followers}</p>
           </div>
-          <div>
+          <div className={"font-spaceReg text-H4"}>
             <p>Following</p>
-            <p>{user.following}</p>
+            <p className={"font-spaceBold text-H2"}>{user.following}</p>
           </div>
         </div>
       )}
