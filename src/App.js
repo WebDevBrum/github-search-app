@@ -6,23 +6,8 @@ import User from "./components/User";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [user, setUser] = useState({});
   const [query, setQuery] = useState("");
-
-  const getUser = async (username) => {
-    const response = await fetch(`https://api.github.com/users/${username}`);
-    const details = await response.json();
-    setUser((prevState) => ({ ...prevState, ...details }));
-    setQuery("");
-    // return details;
-  };
-
-  useEffect(() => {
-    console.log("hello user", user);
-    // getUser("webDevBrum");
-    // getUser("Hendrixer");
-    // console.log(user);
-  }, [user]);
+  const [url, setUrl] = useState("");
 
   // useEffect(() => {
   //   getUser("webDevBrum");
@@ -35,8 +20,8 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen justify-center items-center bg-lightGrey">
       <Header />
-      <SearchBar getUser={getUser} query={query} setQuery={setQuery} />
-      <User user={user} />
+      <SearchBar setUrl={setUrl} query={query} setQuery={setQuery} />
+      <User url={url} setQuery={setQuery} />
     </div>
   );
 }

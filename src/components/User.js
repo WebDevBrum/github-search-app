@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Followers from "./UserComponents/Followers";
 import LocationSocial from "./UserComponents/LocationSocial";
 import UserDetails from "./UserComponents/UserDetails";
 
-const User = ({ user }) => {
+const User = ({ url, setQuery }) => {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    const getUser = async () => {
+      const response = await fetch(url);
+      const details = await response.json();
+      setUser(details);
+      setQuery("");
+      // return details;
+    };
+    // getUser("webDevBrum");
+    // getUser("Hendrixer");
+    // console.log(user);
+    url !== "" && getUser();
+  }, [url, setQuery]);
+
   return (
     <section className="bg-white flex w-3/4 max-w-box">
       <div className="w-1/4 flex justify-center">
