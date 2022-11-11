@@ -11,26 +11,33 @@ const SearchBar = ({ setUrl, query, setQuery }) => {
   };
 
   return (
-    <section className="w-3/4 max-w-box">
-      <div className=" flex rounded-search w-full bg-white ">
-        <img src={search} />
+    <section className="w-100 max-w-box mb-6">
+      <div className=" flex rounded-search w-full bg-white shadow-lg ">
+        <div className="flex flex-col justify-center ml-8 mr-6 min-w-8 min-h-8">
+          <img src={search} alt="search" className="w-6  " />
+        </div>
+
         <input
-          className={" w-full h-16"}
+          className=" w-full text-H6 font-spaceReg  h-17 focus:outline-none"
           type="text"
-          placeholder="Search.."
+          placeholder="Search GitHub username"
           value={query}
           onKeyDown={handleKeypress}
           onChange={(event) => setQuery(event.target.value)}
         />
-        <button
-          className="mr-6 rounded-buttons px-5 bg-blue my-4"
-          onClick={() => setUrl(`https://api.github.com/users/${query}`)}
-        >
-          Submit
-        </button>
+        <div className="mr-6 flex flex-col justify-center">
+          <button
+            className=" rounded-buttons font-spaceReg text-H3 text-darkWhite  bg-blue hover:bg-hoverBlue my-4 h-13 w-27 mt-0 mb-0"
+            onClick={() => setUrl(`https://api.github.com/users/${query}`)}
+          >
+            Submit
+          </button>
+        </div>
       </div>
     </section>
   );
 };
+
+// box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 export default SearchBar;

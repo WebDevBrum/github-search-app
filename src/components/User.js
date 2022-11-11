@@ -21,13 +21,14 @@ const User = ({ url, setQuery }) => {
   }, [url, setQuery]);
 
   return (
-    <section className="bg-white flex w-3/4 max-w-box">
-      <div className="w-1/4 flex justify-center">
-        <div className="mt-12">
-          <img className="rounded-full w-28 h-28  " src={user.avatar_url}></img>
+    <section className="bg-white rounded-search flex w-100 h-99  shadow-lg p-12">
+      <div className="w-98">
+        <div className="">
+          <img className="rounded-full w-29 h-29  " src={user.avatar_url}></img>
         </div>
       </div>
-      <div className="w-3/4 max-w-box mt-12">
+
+      <div className="w-97">
         <UserDetails user={user} />
         <Followers user={user} />
         <LocationSocial user={user} />

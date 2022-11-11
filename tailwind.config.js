@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     colors: {
       blue: "#0079ff",
+      hoverBlue: "#60ABFF",
       grey: "#697c9A",
       greyBlue: "#4B6A9B",
       blackBlue: "#2b3442",
@@ -26,6 +27,7 @@ module.exports = {
       H2: "22px",
       H3: "16px",
       H4: "13px",
+      H5: "18px",
       BODY: "15px",
     },
     borderRadius: {
@@ -39,7 +41,39 @@ module.exports = {
       large: "12px",
     },
 
-    extend: {},
+    extend: {
+      height: {
+        13: "3.125rem",
+        17: "4.313rem",
+        21: "5.313rem", //85px
+        29: "7.313rem",
+      },
+      width: {
+        27: "6.625rem",
+        29: "7.313rem",
+        97: "41.563rem",
+        98: "12.625rem",
+        99: "26.188rem",
+        100: "45.625rem",
+      },
+      lineHeight: {
+        22: "1.389rem",
+        12: "3rem",
+      },
+      maxWidth: {
+        27: "6.625rem",
+        29: "7.313rem",
+        97: "41.563rem",
+        98: "12.625rem",
+        99: "26.188rem",
+        100: "45.625rem",
+      },
+      spacing: {
+        18: "4.313rem", //69px
+        22: "5.188rem",
+        37: "2.313rem", //37px
+      },
+    },
   },
   plugins: [],
 };
