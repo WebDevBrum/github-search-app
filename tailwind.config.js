@@ -13,6 +13,7 @@ module.exports = {
       darkWhite: "#FFFFFF",
       darkBlack: "#141d2f",
       darkBlue: "#1e2a47",
+      red: "#ff0000",
     },
     maxWidth: {
       box: "730px",
@@ -45,10 +46,12 @@ module.exports = {
       height: {
         13: "3.125rem",
         17: "4.313rem",
+
         21: "5.313rem", //85px
         29: "7.313rem",
       },
       width: {
+        18: "0.859rem",
         27: "6.625rem",
         29: "7.313rem",
         97: "41.563rem",
@@ -69,6 +72,8 @@ module.exports = {
         100: "45.625rem",
       },
       spacing: {
+        8.5: "2.188rem",
+        13: "1.195rem", //19.12px
         18: "4.313rem", //69px
         22: "5.188rem",
         37: "2.313rem", //37px
