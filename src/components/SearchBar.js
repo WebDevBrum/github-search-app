@@ -2,7 +2,7 @@ import { queryAllByDisplayValue } from "@testing-library/react";
 import React, { useState } from "react";
 import search from "../assets/icon-search.svg";
 
-const SearchBar = ({ setUrl, query, setQuery }) => {
+const SearchBar = ({ setUrl, query, setQuery, error }) => {
   const handleKeypress = (e) => {
     //it triggers by pressing the enter key
     if (e.keyCode === 13) {
@@ -25,9 +25,11 @@ const SearchBar = ({ setUrl, query, setQuery }) => {
           onKeyDown={handleKeypress}
           onChange={(event) => setQuery(event.target.value)}
         />
-        <div className="text-red flex flex-col text-body font-spaceReg justify-center w-1/4">
-          <p>No results</p>
-        </div>
+        {error && (
+          <div className="text-red flex flex-col text-body font-spaceReg justify-center w-1/4">
+            <p>No results</p>
+          </div>
+        )}
 
         <div className="mr-6 ml-2 flex flex-col justify-center">
           <button

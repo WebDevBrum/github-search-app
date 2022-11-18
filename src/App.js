@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [query, setQuery] = useState("");
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState("https://api.github.com/users/octocat");
+  const [error, setError] = useState(false);
 
   // useEffect(() => {
   //   getUser("webDevBrum");
@@ -20,8 +21,13 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen justify-center items-center bg-lightGrey">
       <Header />
-      <SearchBar setUrl={setUrl} query={query} setQuery={setQuery} />
-      <User url={url} setQuery={setQuery} />
+      <SearchBar
+        setUrl={setUrl}
+        query={query}
+        setQuery={setQuery}
+        error={error}
+      />
+      <User url={url} setQuery={setQuery} setError={setError} />
     </div>
   );
 }

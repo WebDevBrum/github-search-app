@@ -3,21 +3,36 @@ import Followers from "./UserComponents/Followers";
 import LocationSocial from "./UserComponents/LocationSocial";
 import UserDetails from "./UserComponents/UserDetails";
 
-const User = ({ url, setQuery }) => {
+const User = ({ url, setQuery, setError }) => {
   const [user, setUser] = useState({});
+
+  const handleError = (err) => {
+    console.log(err);
+    setError(true);
+  };
 
   useEffect(() => {
     const getUser = async () => {
-      const response = await fetch(url);
-      const details = await response.json();
-      setUser(details);
-      setQuery("");
+      try {
+        setError(false);
+        const response = await fetch(url);
+        const details = await response.json();
+        if (details.name) {
+          setUser(details);
+          setQuery("");
+        } else {
+          throw new Error();
+        }
+      } catch (e) {
+        handleError(e);
+      }
+
       // return details;
     };
     // getUser("webDevBrum");
     // getUser("Hendrixer");
     // console.log(user);
-    url !== "" && getUser();
+    url !== "" && getUser().catch(handleError);
   }, [url, setQuery]);
 
   return (
