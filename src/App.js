@@ -9,6 +9,7 @@ function App() {
   const [query, setQuery] = useState("");
   const [url, setUrl] = useState("https://api.github.com/users/octocat");
   const [error, setError] = useState(false);
+  const [mode, setMode] = useState("light");
 
   // useEffect(() => {
   //   getUser("webDevBrum");
@@ -19,15 +20,20 @@ function App() {
   // getUser("Hendrixer");
 
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center bg-lightGrey">
-      <Header />
+    <div
+      className={`flex flex-col min-h-screen justify-center items-center ${
+        mode === "light" ? "bg-lightGrey" : "bg-darkBlack"
+      }`}
+    >
+      <Header mode={mode} setMode={setMode} />
       <SearchBar
         setUrl={setUrl}
         query={query}
         setQuery={setQuery}
         error={error}
+        mode={mode}
       />
-      <User url={url} setQuery={setQuery} setError={setError} />
+      <User mode={mode} url={url} setQuery={setQuery} setError={setError} />
     </div>
   );
 }

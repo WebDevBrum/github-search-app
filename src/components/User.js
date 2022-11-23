@@ -3,7 +3,7 @@ import Followers from "./UserComponents/Followers";
 import LocationSocial from "./UserComponents/LocationSocial";
 import UserDetails from "./UserComponents/UserDetails";
 
-const User = ({ url, setQuery, setError }) => {
+const User = ({ url, setQuery, setError, mode }) => {
   const [user, setUser] = useState({});
 
   const handleError = (err) => {
@@ -36,7 +36,11 @@ const User = ({ url, setQuery, setError }) => {
   }, [url, setQuery]);
 
   return (
-    <section className="bg-white rounded-search flex w-100 h-99  shadow-lg p-12">
+    <section
+      className={`${
+        mode === "light" ? "bg-white" : "bg-darkBlue"
+      } rounded-search flex w-100 h-99  shadow-lg p-12`}
+    >
       <div className="w-98">
         <div className="">
           <img className="rounded-full w-29 h-29  " src={user.avatar_url}></img>
@@ -44,9 +48,9 @@ const User = ({ url, setQuery, setError }) => {
       </div>
 
       <div className="w-97">
-        <UserDetails user={user} />
-        <Followers user={user} />
-        <LocationSocial user={user} />
+        <UserDetails user={user} mode={mode} />
+        <Followers user={user} mode={mode} />
+        <LocationSocial user={user} mode={mode} />
       </div>
     </section>
   );
