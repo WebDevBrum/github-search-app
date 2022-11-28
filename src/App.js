@@ -25,15 +25,17 @@ function App() {
         mode === "light" ? "bg-lightGrey" : "bg-darkBlack"
       }`}
     >
-      <Header mode={mode} setMode={setMode} />
-      <SearchBar
-        setUrl={setUrl}
-        query={query}
-        setQuery={setQuery}
-        error={error}
-        mode={mode}
-      />
-      <User mode={mode} url={url} setQuery={setQuery} setError={setError} />
+      <div className="max-w-[50%]">
+        <Header mode={mode} setMode={setMode} />
+        <SearchBar
+          setUrl={setUrl}
+          query={query}
+          setQuery={setQuery}
+          error={error}
+          mode={mode}
+        />
+        <User mode={mode} url={url} setQuery={setQuery} setError={setError} />
+      </div>
     </div>
   );
 }

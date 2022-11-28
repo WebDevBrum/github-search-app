@@ -11,7 +11,7 @@ const SearchBar = ({ setUrl, query, setQuery, error, mode }) => {
   };
 
   return (
-    <section className="w-100 max-w-box mb-6 mt-8.5">
+    <section className="max-w[100%] mb-6 mt-8.5">
       <div
         className={`flex rounded-search w-full ${
           mode === "light" ? "bg-white" : "bg-darkBlue"

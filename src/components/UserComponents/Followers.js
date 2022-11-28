@@ -5,13 +5,13 @@ const Followers = ({ user, mode }) => {
     <div
       className={`${
         mode === "light" ? "bg-lightGrey" : "bg-darkBlack"
-      } rounded-buttons h-21 pl-8 pr-22 mb-37`}
+      } rounded-buttons h-21 pl-8 lg:pr-22 mb-37 `}
     >
       {user && user.login && (
         <div
           className={`${
             mode === "dark" && "text-darkWhite"
-          } flex w-4/4 h-full  justify-between items-center`}
+          } flex w-[100%] h-full  justify-between items-center`}
         >
           <div>
             <p

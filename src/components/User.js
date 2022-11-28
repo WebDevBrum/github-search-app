@@ -39,15 +39,15 @@ const User = ({ url, setQuery, setError, mode }) => {
     <section
       className={`${
         mode === "light" ? "bg-white" : "bg-darkBlue"
-      } rounded-search flex w-100 h-99  shadow-lg p-12`}
+      } rounded-search flex max-w-[100%] h-99 sm:w-99.6  shadow-lg p-12`}
     >
-      <div className="w-98">
+      <div className="w-98 ">
         <div className="">
           <img className="rounded-full w-29 h-29  " src={user.avatar_url}></img>
         </div>
       </div>
 
-      <div className="w-97">
+      <div className="flex flex-col max-w[100%]">
         <UserDetails user={user} mode={mode} />
         <Followers user={user} mode={mode} />
         <LocationSocial user={user} mode={mode} />
