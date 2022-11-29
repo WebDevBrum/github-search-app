@@ -14,7 +14,7 @@ const LocationSocial = ({ user, mode }) => {
             mode === "light" ? "text-greyBlue" : "text-darkWhite"
           } h-18`}
         >
-          <div className="flex w-2/4">
+          <div className="flex basis-2/4">
             <div>
               <img src={search} alt="search" className="w-18  mr-13" />
             </div>
@@ -26,7 +26,7 @@ const LocationSocial = ({ user, mode }) => {
               {user.location || "Not Available"}
             </p>
           </div>
-          <div className="flex w-2/4">
+          <div className="flex basis-2/4">
             <div>
               <img src={twitter} alt="search" className="w-18  mr-13" />
             </div>
@@ -44,7 +44,7 @@ const LocationSocial = ({ user, mode }) => {
               )}
             </p>
           </div>
-          <div className="flex w-2/4">
+          <div className="flex basis-2/4">
             <div>
               <img src={website} alt="search" className="w-18 mr-13 " />
             </div>

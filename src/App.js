@@ -21,19 +21,19 @@ function App() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen justify-center items-center ${
+      className={`min-[10px]:px-[9px] sm:px-[97px] flex flex-col min-h-screen justify-center items-center ${
         mode === "light" ? "bg-lightGrey" : "bg-darkBlack"
       }`}
     >
-      <div className="max-w-[50%]">
-        <Header mode={mode} setMode={setMode} />
-        <SearchBar
-          setUrl={setUrl}
-          query={query}
-          setQuery={setQuery}
-          error={error}
-          mode={mode}
-        />
+      <Header mode={mode} setMode={setMode} />
+      <SearchBar
+        setUrl={setUrl}
+        query={query}
+        setQuery={setQuery}
+        error={error}
+        mode={mode}
+      />
+      <div className="w-full max-w-box">
         <User mode={mode} url={url} setQuery={setQuery} setError={setError} />
       </div>
     </div>

@@ -11,9 +11,9 @@ const SearchBar = ({ setUrl, query, setQuery, error, mode }) => {
   };
 
   return (
-    <section className="max-w[100%] mb-6 mt-8.5">
+    <section className="flex w-full max-w-box mb-6 mt-8.5">
       <div
-        className={`flex rounded-search w-full ${
+        className={`flex rounded-search basis-100 ${
           mode === "light" ? "bg-white" : "bg-darkBlue"
         } shadow-lg`}
       >
@@ -22,7 +22,7 @@ const SearchBar = ({ setUrl, query, setQuery, error, mode }) => {
         </div>
 
         <input
-          className={`w-full text-H6 font-spaceReg  h-17 focus:outline-none ${
+          className={`basis-full text-H6 font-spaceReg  h-17 focus:outline-none ${
             mode === "light"
               ? "bg-white"
               : "bg-darkBlue text-darkWhite placeholder:text-darkWhite"
@@ -34,7 +34,7 @@ const SearchBar = ({ setUrl, query, setQuery, error, mode }) => {
           onChange={(event) => setQuery(event.target.value)}
         />
         {error && (
-          <div className="text-red flex flex-col text-body font-spaceReg justify-center w-1/4">
+          <div className="text-red flex flex-col text-body font-spaceReg justify-center basis-1/4">
             <p>No results</p>
           </div>
         )}

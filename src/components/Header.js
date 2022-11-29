@@ -4,7 +4,7 @@ import sun from "../assets/icon-sun.svg";
 
 const Header = ({ mode, setMode }) => {
   return (
-    <div className="flex justify-between w-100 max-w-box items-center">
+    <div className="flex justify-between w-full max-w-box items-center">
       <h1
         className={`font-spaceBold text-H1 ${
           mode === "dark" && "text-darkWhite"
