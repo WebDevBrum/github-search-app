@@ -10,11 +10,11 @@ const LocationSocial = ({ user, mode }) => {
     <div>
       {user && user.login && (
         <div
-          className={`flex flex-wrap ${
+          className={`flex sm:flex-wrap sm:flex-row min-[0px]:flex-col   ${
             mode === "light" ? "text-greyBlue" : "text-darkWhite"
           } h-18`}
         >
-          <div className="flex basis-2/4">
+          <div className="flex basis-2/4 min-[0px]:mb-[5px]">
             <div>
               <img src={search} alt="search" className="w-18  mr-13" />
             </div>
@@ -26,7 +26,7 @@ const LocationSocial = ({ user, mode }) => {
               {user.location || "Not Available"}
             </p>
           </div>
-          <div className="flex basis-2/4">
+          <div className="flex basis-2/4 min-[0px]:mb-[5px]">
             <div>
               <img src={twitter} alt="search" className="w-18  mr-13" />
             </div>
@@ -44,7 +44,7 @@ const LocationSocial = ({ user, mode }) => {
               )}
             </p>
           </div>
-          <div className="flex basis-2/4">
+          <div className="flex basis-2/4 min-[0px]:mb-[5px]">
             <div>
               <img src={website} alt="search" className="w-18 mr-13 " />
             </div>

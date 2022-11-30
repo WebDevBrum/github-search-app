@@ -29,7 +29,9 @@ module.exports = {
       H3: "16px",
       H4: "13px",
       H5: "18px",
+      H6: "11px",
       BODY: "15px",
+      BODYSM: "14px",
     },
     borderRadius: {
       buttons: "10px",
@@ -83,7 +85,14 @@ module.exports = {
         98: "35.813rem",
         100: "45.625rem",
       },
+      screens: {
+        "2md": "822px",
+        // => @media (min-width: 640px) { ... }
+
+        // => @media (min-width: 1280px) { ... }
+      },
     },
   },
+
   plugins: [],
 };

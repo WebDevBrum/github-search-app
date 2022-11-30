@@ -26,7 +26,7 @@ const UserDetails = ({ user, mode }) => {
         <>
           <div className="flex flex-wrap  justify-between align-middle mb-5">
             <div className="flex  w-full">
-              <div className="min-[0px]:w-[94px] min-[0px]:mr-[19px] sm:w-98">
+              <div className="min-[0px]:w-[94px] min-[0px]:mr-[19px] sm:mr-[0px] sm:w-98">
                 <img
                   className="rounded-full min-[0px]:w-[70px] sm:w-29 sm:h-29  "
                   src={user.avatar_url}

@@ -43,7 +43,7 @@ const User = ({ url, setQuery, setError, mode }) => {
     >
       <div className="flex flex-col basis-97">
         <UserDetails user={user} mode={mode} />
-        <div className="md:ml-[150px] md:mt-[-50px]">
+        <div className="2md:ml-[150px] 2md:mt-[-50px]">
           <p
             className={`font-spaceReg sm:text-BODY min-[0px]:text-H4 h-8 mb-10  ${
               mode === "light" ? "text-greyBlue" : "text-darkWhite"
