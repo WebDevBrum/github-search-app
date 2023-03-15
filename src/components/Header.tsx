@@ -1,8 +1,13 @@
-import React from "react";
+import React, { Dispatch } from "react";
 import moon from "../assets/icon-moon.svg";
 import sun from "../assets/icon-sun.svg";
 
-const Header = ({ mode, setMode }) => {
+type HeaderProps = {
+  mode: string;
+  setMode: Dispatch<React.SetStateAction<string>>;
+};
+
+const Header = ({ mode, setMode }: HeaderProps) => {
   return (
     <div className="flex justify-between w-full max-w-box items-center">
       <h1

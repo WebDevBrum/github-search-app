@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Dispatch } from "react";
 import Followers from "./UserComponents/Followers";
 import LocationSocial from "./UserComponents/LocationSocial";
 import UserDetails from "./UserComponents/UserDetails";
 
-const User = ({ url, setQuery, setError, mode }) => {
-  const [user, setUser] = useState({});
+export interface UserProps {
+  url: string;
+  setQuery: Dispatch<React.SetStateAction<string>>;
+  setError: Dispatch<React.SetStateAction<boolean>>;
+  mode: string;
+}
 
-  const handleError = (err) => {
+type UserBio = {
+  bio?: string;
+};
+
+const User = ({ url, setQuery, setError, mode }: UserProps) => {
+  const [user, setUser] = useState<UserBio>();
+
+  const handleError = (err: unknown) => {
     console.log(err);
     setError(true);
   };
@@ -47,9 +58,9 @@ const User = ({ url, setQuery, setError, mode }) => {
           <p
             className={`font-spaceReg sm:text-BODY min-[0px]:text-H4 h-8 mb-10  ${
               mode === "light" ? "text-greyBlue" : "text-darkWhite"
-            } ${user.bio && user.bio.length > 0 ? "" : "opacity-50"}`}
+            } ${user?.bio && user.bio.length > 0 ? "" : "opacity-50"}`}
           >
-            {user.bio && user.bio.length > 0
+            {user?.bio && user.bio.length > 0
               ? user.bio
               : "This profile has no bio"}
           </p>

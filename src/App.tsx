@@ -1,11 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import User from "./components/User";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function App() {
+  //convert this to a reducer
   const [query, setQuery] = useState("");
   const [url, setUrl] = useState("https://api.github.com/users/octocat");
   const [error, setError] = useState(false);

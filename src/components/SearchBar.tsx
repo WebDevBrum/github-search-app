@@ -1,9 +1,20 @@
-import { queryAllByDisplayValue } from "@testing-library/react";
-import React, { useState } from "react";
+import React, { Dispatch } from "react";
 import search from "../assets/icon-search.svg";
 
-const SearchBar = ({ setUrl, query, setQuery, error, mode }) => {
-  const handleKeypress = (e) => {
+type SearchProps = {
+  setUrl: Dispatch<React.SetStateAction<string>>;
+  setQuery: Dispatch<React.SetStateAction<string>>;
+  query: string;
+  error: boolean;
+  mode: string;
+};
+
+type ErrorProps = {
+  keyCode: number;
+};
+
+const SearchBar = ({ setUrl, query, setQuery, error, mode }: SearchProps) => {
+  const handleKeypress = (e: ErrorProps) => {
     //it triggers by pressing the enter key
     if (e.keyCode === 13) {
       setUrl(`https://api.github.com/users/${query}`);
