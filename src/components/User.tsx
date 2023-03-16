@@ -11,23 +11,22 @@ import UserDetails from "./UserComponents/UserDetails";
 //   mode: string;
 // }
 
-const User = ({ url, setQuery, setError, mode }: UserProps) => {
+const User = ({ url, dispatch, mode }: UserProps) => {
   const [user, setUser] = useState<UserBio>();
 
   const handleError = (err: unknown) => {
     console.log(err);
-    setError(true);
   };
 
   useEffect(() => {
     const getUser = async () => {
       try {
-        setError(false);
+        dispatch({ type: "update-error", payload: false });
         const response = await fetch(url);
         const details = await response.json();
         if (details.name) {
           setUser(details);
-          setQuery("");
+          dispatch({ type: "update-query", payload: "" });
         } else {
           throw new Error();
         }
@@ -41,7 +40,7 @@ const User = ({ url, setQuery, setError, mode }: UserProps) => {
     // getUser("Hendrixer");
     // console.log(user);
     url !== "" && getUser().catch(handleError);
-  }, [url, setQuery]);
+  }, [url, dispatch]);
 
   return (
     <section

@@ -2,11 +2,14 @@ import React, { Dispatch } from "react";
 import search from "../assets/icon-search.svg";
 import { SearchProps } from "../Props";
 
-const SearchBar = ({ setUrl, query, setQuery, error, mode }: SearchProps) => {
+const SearchBar = ({ dispatch, query, error, mode }: SearchProps) => {
   const handleKeypress = (e: ErrorProps) => {
     //it triggers by pressing the enter key
     if (e.keyCode === 13) {
-      setUrl(`https://api.github.com/users/${query}`);
+      dispatch({
+        type: "update-url",
+        payload: `https://api.github.com/users/${query}`,
+      });
     }
   };
 
@@ -31,7 +34,9 @@ const SearchBar = ({ setUrl, query, setQuery, error, mode }: SearchProps) => {
           placeholder="Search GitHub username..."
           value={query}
           onKeyDown={handleKeypress}
-          onChange={(event) => setQuery(event.target.value)}
+          onChange={(event) =>
+            dispatch({ type: "update-query", payload: event.target.value })
+          }
         />
         {error && (
           <div className="text-red flex flex-col text-body font-spaceReg justify-center basis-1/4">
@@ -42,7 +47,12 @@ const SearchBar = ({ setUrl, query, setQuery, error, mode }: SearchProps) => {
         <div className="mr-6 ml-2 flex flex-col justify-center">
           <button
             className=" rounded-buttons font-spaceReg min-[0px]:text-BODYSM sm:text-H3 text-darkWhite  bg-blue hover:bg-hoverBlue my-4 h-13 sm:w-27 min-[0px]:w-[80px] mt-0 mb-0"
-            onClick={() => setUrl(`https://api.github.com/users/${query}`)}
+            onClick={() =>
+              dispatch({
+                type: "update-url",
+                payload: `https://api.github.com/users/${query}`,
+              })
+            }
           >
             Search
           </button>

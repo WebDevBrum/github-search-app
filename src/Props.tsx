@@ -1,15 +1,14 @@
 import React, { useEffect, useState, Dispatch } from "react";
+import { StateActions } from "./app-reducer";
 
 export interface UserProps {
   url: string;
-  setQuery: Dispatch<React.SetStateAction<string>>;
-  setError: Dispatch<React.SetStateAction<boolean>>;
+  dispatch: Dispatch<StateActions>;
   mode: string;
 }
 
 export type SearchProps = {
-  setUrl: Dispatch<React.SetStateAction<string>>;
-  setQuery: Dispatch<React.SetStateAction<string>>;
+  dispatch: Dispatch<StateActions>;
   query: string;
   error: boolean;
   mode: string;

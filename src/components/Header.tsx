@@ -1,13 +1,14 @@
 import React, { Dispatch } from "react";
+import { StateActions } from "../app-reducer";
 import moon from "../assets/icon-moon.svg";
 import sun from "../assets/icon-sun.svg";
 
 type HeaderProps = {
   mode: string;
-  setMode: Dispatch<React.SetStateAction<string>>;
+  dispatch: Dispatch<StateActions>;
 };
 
-const Header = ({ mode, setMode }: HeaderProps) => {
+const Header = ({ mode, dispatch }: HeaderProps) => {
   return (
     <div className="flex justify-between w-full max-w-box items-center">
       <h1
@@ -25,7 +26,9 @@ const Header = ({ mode, setMode }: HeaderProps) => {
         >
           <button
             onClick={
-              mode === "light" ? () => setMode("dark") : () => setMode("light")
+              mode === "light"
+                ? () => dispatch({ type: "update-mode", payload: "dark" })
+                : () => dispatch({ type: "update-mode", payload: "light" })
             }
           >
             {mode === "light" ? "DARK" : "LIGHT"}
@@ -35,7 +38,9 @@ const Header = ({ mode, setMode }: HeaderProps) => {
         <div>
           <img
             onClick={
-              mode === "light" ? () => setMode("dark") : () => setMode("light")
+              mode === "light"
+                ? () => dispatch({ type: "update-mode", payload: "dark" })
+                : () => dispatch({ type: "update-mode", payload: "light" })
             }
             src={mode === "dark" ? sun : moon}
             alt="search"
