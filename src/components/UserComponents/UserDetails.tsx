@@ -1,7 +1,7 @@
 import React from "react";
 
-const UserDetails = ({ user, mode }) => {
-  const removeFirstWord = (str) => {
+const UserDetails = ({ user, mode }: { user: UserBio; mode: string }) => {
+  const removeFirstWord = (str: string): string => {
     const indexOfSpace = str.indexOf(" ");
 
     if (indexOfSpace === -1) {
@@ -11,7 +11,7 @@ const UserDetails = ({ user, mode }) => {
     return str.substring(indexOfSpace + 1);
   };
 
-  const convertDate = (date) => {
+  const convertDate = (date: string): string => {
     let dateC = new Date(date);
     const dateString = dateC.toDateString();
 
@@ -30,6 +30,7 @@ const UserDetails = ({ user, mode }) => {
                 <img
                   className="rounded-full min-[0px]:w-[70px] sm:w-29 sm:h-29  "
                   src={user.avatar_url}
+                  alt="avatar"
                 ></img>
               </div>
 

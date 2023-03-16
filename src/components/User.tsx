@@ -1,18 +1,15 @@
 import React, { useEffect, useState, Dispatch } from "react";
+import { UserProps } from "../Props";
 import Followers from "./UserComponents/Followers";
 import LocationSocial from "./UserComponents/LocationSocial";
 import UserDetails from "./UserComponents/UserDetails";
 
-export interface UserProps {
-  url: string;
-  setQuery: Dispatch<React.SetStateAction<string>>;
-  setError: Dispatch<React.SetStateAction<boolean>>;
-  mode: string;
-}
-
-type UserBio = {
-  bio?: string;
-};
+// export interface UserProps {
+//   url: string;
+//   setQuery: Dispatch<React.SetStateAction<string>>;
+//   setError: Dispatch<React.SetStateAction<boolean>>;
+//   mode: string;
+// }
 
 const User = ({ url, setQuery, setError, mode }: UserProps) => {
   const [user, setUser] = useState<UserBio>();
@@ -53,7 +50,7 @@ const User = ({ url, setQuery, setError, mode }: UserProps) => {
       } rounded-search flex md:basis-100 sm:basis-98  h-99  shadow-lg p-12 `}
     >
       <div className="flex flex-col basis-97">
-        <UserDetails user={user} mode={mode} />
+        {user && <UserDetails user={user} mode={mode} />}
         <div className="2md:ml-[150px] 2md:mt-[-50px]">
           <p
             className={`font-spaceReg sm:text-BODY min-[0px]:text-H4 h-8 mb-10  ${

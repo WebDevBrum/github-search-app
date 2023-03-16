@@ -1,17 +1,6 @@
 import React, { Dispatch } from "react";
 import search from "../assets/icon-search.svg";
-
-type SearchProps = {
-  setUrl: Dispatch<React.SetStateAction<string>>;
-  setQuery: Dispatch<React.SetStateAction<string>>;
-  query: string;
-  error: boolean;
-  mode: string;
-};
-
-type ErrorProps = {
-  keyCode: number;
-};
+import { SearchProps } from "../Props";
 
 const SearchBar = ({ setUrl, query, setQuery, error, mode }: SearchProps) => {
   const handleKeypress = (e: ErrorProps) => {
