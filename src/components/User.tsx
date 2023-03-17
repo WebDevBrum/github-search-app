@@ -1,4 +1,5 @@
-import React, { useEffect, useState, Dispatch } from "react";
+import React, { useEffect, useState, Dispatch, useContext } from "react";
+import { ItemsContext } from "../context";
 import { UserProps } from "../Props";
 import Followers from "./UserComponents/Followers";
 import LocationSocial from "./UserComponents/LocationSocial";
@@ -11,7 +12,9 @@ import UserDetails from "./UserComponents/UserDetails";
 //   mode: string;
 // }
 
-const User = ({ url, dispatch, mode }: UserProps) => {
+const User = () => {
+  const { url, mode, dispatch } = useContext(ItemsContext);
+
   const [user, setUser] = useState<UserBio>();
 
   const handleError = (err: unknown) => {
