@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import User from "./components/User";
 import { useReducer, useState } from "react";
 import { initialState, stateReducer } from "./app-reducer";
+import { useCustomContext, useMode } from "./context";
 
 function App() {
   //converted this to a reducer
@@ -12,10 +13,7 @@ function App() {
   // const [error, setError] = useState(false);
   // const [mode, setMode] = useState("light");
 
-  const [{ query, url, error, mode }, dispatch] = useReducer(
-    stateReducer,
-    initialState
-  );
+  const mode = useMode();
 
   return (
     <div
@@ -23,10 +21,10 @@ function App() {
         mode === "light" ? "bg-lightGrey" : "bg-darkBlack"
       }`}
     >
-      <Header mode={mode} dispatch={dispatch} />
-      <SearchBar dispatch={dispatch} query={query} error={error} mode={mode} />
+      <Header />
+      <SearchBar />
       <div className="w-full max-w-box">
-        <User mode={mode} url={url} dispatch={dispatch} />
+        <User />
       </div>
     </div>
   );

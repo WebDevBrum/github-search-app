@@ -2,13 +2,11 @@ import React, { Dispatch } from "react";
 import { StateActions } from "../app-reducer";
 import moon from "../assets/icon-moon.svg";
 import sun from "../assets/icon-sun.svg";
+import { useCustomContext } from "../context";
 
-type HeaderProps = {
-  mode: string;
-  dispatch: Dispatch<StateActions>;
-};
+const Header = () => {
+  const { mode, dispatch } = useCustomContext();
 
-const Header = ({ mode, dispatch }: HeaderProps) => {
   return (
     <div className="flex justify-between w-full max-w-box items-center">
       <h1

@@ -1,8 +1,11 @@
 import React, { Dispatch } from "react";
 import search from "../assets/icon-search.svg";
+import { useCustomContext } from "../context";
 import { SearchProps } from "../Props";
 
-const SearchBar = ({ dispatch, query, error, mode }: SearchProps) => {
+const SearchBar = () => {
+  const { dispatch, query, error, mode } = useCustomContext();
+
   const handleKeypress = (e: ErrorProps) => {
     //it triggers by pressing the enter key
     if (e.keyCode === 13) {
