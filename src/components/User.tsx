@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Dispatch, useContext } from "react";
 import { ItemsContext } from "../context";
-import { UserProps } from "../Props";
+
 import Followers from "./UserComponents/Followers";
 import LocationSocial from "./UserComponents/LocationSocial";
 import UserDetails from "./UserComponents/UserDetails";
@@ -28,6 +28,7 @@ const User = () => {
         const response = await fetch(url);
         const details = await response.json();
         if (details.name) {
+          // const filteredUsers = details.map((user: UserBio) => ({ bio, name }));
           setUser(details);
           dispatch({ type: "update-query", payload: "" });
         } else {
@@ -63,8 +64,12 @@ const User = () => {
               ? user.bio
               : "This profile has no bio"}
           </p>
-          <Followers user={user} mode={mode} />
-          <LocationSocial user={user} mode={mode} />
+          {user && (
+            <>
+              <Followers user={user} mode={mode} />
+              <LocationSocial user={user} mode={mode} />
+            </>
+          )}
         </div>
       </div>
     </section>

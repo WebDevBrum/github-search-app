@@ -4,7 +4,7 @@ import company from "../../assets/icon-company.svg";
 import website from "../../assets/icon-website.svg";
 import twitter from "../../assets/icon-twitter.svg";
 
-const LocationSocial = ({ user, mode }) => {
+const LocationSocial = ({ user, mode }: { user: UserBio; mode: string }) => {
   console.log(user);
   return (
     <div>

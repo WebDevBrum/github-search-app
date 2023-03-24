@@ -1,7 +1,7 @@
 import React, { Dispatch, useContext } from "react";
 import search from "../assets/icon-search.svg";
 import { ItemsContext } from "../context";
-import { SearchProps } from "../Props";
+// import { SearchProps } from "../Props";
 
 const SearchBar = () => {
   const { mode, query, error, dispatch } = useContext(ItemsContext);

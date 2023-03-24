@@ -1,9 +1,7 @@
-import React, { useReducer } from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Header from "../../components/Header";
-import App from "../../App";
 import userEvent from "@testing-library/user-event";
-import { ItemsContext } from "../../context";
+import ItemsProvider, { ItemsContext } from "../../context";
 
 describe("Header", () => {
   //   const props = {
@@ -70,65 +68,22 @@ describe("Header", () => {
     });
   });
 
-  it("changes the theme to dark when clicking the mode button and then changes back to light when clicking again", () => {
-    let mode = "light";
-
-    const testDispatch = jest.fn((action) => {
-      // Update the mode state based on the action payload
-      if (action.type === "update-mode") {
-        mode = action.payload;
-      }
-    });
-
+  it("clicking the theme button changes the theme", () => {
     render(
-      <ItemsContext.Provider
-        value={{
-          mode: mode,
-          dispatch: testDispatch,
-          query: "",
-          url: "",
-          error: false,
-        }}
-      >
-        <App />
-      </ItemsContext.Provider>
+      <ItemsProvider>
+        <Header />
+      </ItemsProvider>
     );
+    const button = screen.getByRole("button", { name: /dark/i });
 
-    expect(mode).toBe("light");
-
-    let button = screen.getByRole("button", { name: /dark/i });
+    expect(button.textContent).toBe("DARK");
 
     userEvent.click(button);
-
-    expect(mode).toBe("dark");
-    expect(testDispatch).toHaveBeenCalledWith({
-      payload: "dark",
-      type: "update-mode",
-    });
-
-    render(
-      <ItemsContext.Provider
-        value={{
-          mode: mode,
-          dispatch: testDispatch,
-          query: "",
-          url: "",
-          error: false,
-        }}
-      >
-        <Header />
-      </ItemsContext.Provider>
-    );
-    button = screen.getByRole("button", { name: /light/i });
 
     expect(button.textContent).toBe("LIGHT");
 
     userEvent.click(button);
 
-    expect(mode).toBe("light");
-    expect(testDispatch).toHaveBeenCalledWith({
-      payload: "light",
-      type: "update-mode",
-    });
+    expect(button.textContent).toBe("DARK");
   });
 });

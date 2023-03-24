@@ -14,6 +14,14 @@ type UserBio = {
   avatar_url: string;
   created_at: string;
   name: string;
+  login: string;
+  public_repos: number;
+  followers: number;
+  following: number;
+  location: string;
+  twitter_username: string;
+  blog: string;
+  company: string;
 };
 
 type ErrorProps = {

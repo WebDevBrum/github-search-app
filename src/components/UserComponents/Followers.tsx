@@ -1,6 +1,6 @@
 import React from "react";
 
-const Followers = ({ user, mode }) => {
+const Followers = ({ user, mode }: { user: UserBio; mode: string }) => {
   return (
     <div
       className={`${

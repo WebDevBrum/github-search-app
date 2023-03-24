@@ -1,25 +1,7 @@
 import React from "react";
+import { removeFirstWord, convertDate } from "./detailsHelpers.";
 
 const UserDetails = ({ user, mode }: { user: UserBio; mode: string }) => {
-  const removeFirstWord = (str: string): string => {
-    const indexOfSpace = str.indexOf(" ");
-
-    if (indexOfSpace === -1) {
-      return "";
-    }
-
-    return str.substring(indexOfSpace + 1);
-  };
-
-  const convertDate = (date: string): string => {
-    let dateC = new Date(date);
-    const dateString = dateC.toDateString();
-
-    const formatted = removeFirstWord(dateString);
-
-    return formatted;
-  };
-
   return (
     <div>
       {user && user.login && (
